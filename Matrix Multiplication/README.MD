@@ -1,4 +1,4 @@
-MATRIX MULTIPLICATION
+# MATRIX MULTIPLICATION
 
 @author Andrew Martin
 for Algorithms in Bioinformatics
