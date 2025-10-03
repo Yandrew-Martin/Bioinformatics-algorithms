@@ -1,15 +1,13 @@
-PROJECT ONE README
+MATRIX MULTIPLICATION
 
-// @author Andrew Martin 
-// for Algorithms in Bioinformatics
-// @version 1.2
-// -- added readMatrix and displayMatrix 
-// -- 1.1 - added file I/O
-// @JDK Version 13.0.2
-// EDITOR: SublimeText3 and Java code was ran in console
-// This algorithm multiples two matrices using the Strassen method alongside normal 
-// matrix multiplication
-// REQUIREMENTS: Minumum ram, a working computer, JDK 13.0.2+, minimal storage capacity for output files
+@author Andrew Martin 
+for Algorithms in Bioinformatics
+@version 1.2
+-- added readMatrix and displayMatrix 
+-- 1.1 - added file I/O
+@JDK Version 13.0.2
+This algorithm multiples two matrices using the Strassen method alongside normal 
+matrix multiplication
 
 Create file of matrices according to parameters below:
 
