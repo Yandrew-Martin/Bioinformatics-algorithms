@@ -1,13 +1,12 @@
 MATRIX MULTIPLICATION
 
-@author Andrew Martin 
+@author Andrew Martin
 for Algorithms in Bioinformatics
 @version 1.2
--- added readMatrix and displayMatrix 
+-- added readMatrix and displayMatrix
 -- 1.1 - added file I/O
 @JDK Version 13.0.2
-This algorithm multiples two matrices using the Strassen method alongside normal 
-matrix multiplication
+This algorithm multiples two matrices using the Strassen method alongside normal matrix multiplication
 
 Create file of matrices according to parameters below:
 
