@@ -1,69 +1,102 @@
 package matrixArithmetic;
 
-// @author Andrew Martin
-// for Algorithms in Bioinformatics
-// version 1.1
-// -- added standardMultiply() to the package
-// 
-// Arithmetic class for basic matrix operations
+/**
+ * MatrixArithmetic
+ * 
+ * Basic arithmetic operations for square matrices.
+ * Includes addition, subtraction, partitioning, joining, 
+ * and standard (O(n^3)) matrix multiplication.
+ * 
+ * @author Andrew Martin
+ * @version 1.1
+ * For Algorithms in Bioinformatics
+ * 
+ * Updates:
+ *   - Added standardMultiply() to the package
+ */
+public class MatrixArithmetic {
 
-public class MatrixArithmetic
-{
-    // subtract values of matrices A and B and place into new matrix C
-    // return the new matrix C
-	public static int[][] subtract(int[][] A, int[][] B)
-    {
+    /**
+     * Subtracts matrix B from matrix A (C = A - B).
+     *
+     * @param A first input matrix
+     * @param B second input matrix
+     * @return resulting matrix C after subtraction
+     */
+    public static int[][] subtract(int[][] A, int[][] B) {
         int n = A.length;
         int[][] C = new int[n][n];
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 C[i][j] = A[i][j] - B[i][j];
+            }
+        }
         return C;
     }
-    // add values of matrices A and B and place into new matrix C
-    // return the new matrix C
-    // @input matrix objects A and B
-    // @output resulting matrix of matrix addition operation
-    public static int[][] add(int[][] A, int[][] B)
-    {
+
+    /**
+     * Adds two matrices (C = A + B).
+     *
+     * @param A first input matrix
+     * @param B second input matrix
+     * @return resulting matrix C after addition
+     */
+    public static int[][] add(int[][] A, int[][] B) {
         int n = A.length;
         int[][] C = new int[n][n];
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 C[i][j] = A[i][j] + B[i][j];
+            }
+        }
         return C;
     }
-    // Partition matrix into two matrices, A and B
-    // NOTE: works best with powers of 2
-    // @input matrix objects A and B, start and ending size for partitioned matrix
-    // @output - none - fills matrix B with partitioned values
-    public static void partition(int[][] A, int[][] B, int n, int m) 
-    {
-        for(int i = 0, j = n; i < B.length; i++, j++)
-            for(int k = 0, l = m; k < B.length; k++, l++)
-                B[i][k] = A[j][l];
-    }
-    // join matrix A with matrix B
-    // @input matrix objects A and B, start and ending values where the joined
-    // matrix inputs its values into the final matrix
-    // @output - none - fills final matrix 
-    public static void join(int[][] A, int[][] B, int n, int m) 
-    {
-        for(int i = 0, j = n; i < A.length; i++, j++)
-            for(int k = 0, l = m; k < A.length; k++, l++)
-                B[j][l] = A[i][k];
-    }
-    // Standard matrix Multiplication using three for loops
-    // @input matrix objects A and B
-    // @output returns product of matrix A and B
-    public static int[][] standardMultiply(int[][] A, int[][] B)
-    {
-        int n = A.length;
 
-        // initialise new matrix C
+    /**
+     * Partitions a submatrix from A into B.
+     * Works best with matrix sizes that are powers of 2.
+     *
+     * @param A the larger source matrix
+     * @param B the smaller matrix to fill with values
+     * @param n row offset in A
+     * @param m column offset in A
+     */
+    public static void partition(int[][] A, int[][] B, int n, int m) {
+        for (int i = 0, j = n; i < B.length; i++, j++) {
+            for (int k = 0, l = m; k < B.length; k++, l++) {
+                B[i][k] = A[j][l];
+            }
+        }
+    }
+
+    /**
+     * Joins matrix A into matrix B at the specified offset.
+     *
+     * @param A the smaller matrix to insert
+     * @param B the larger matrix to update
+     * @param n row offset in B
+     * @param m column offset in B
+     */
+    public static void join(int[][] A, int[][] B, int n, int m) {
+        for (int i = 0, j = n; i < A.length; i++, j++) {
+            for (int k = 0, l = m; k < A.length; k++, l++) {
+                B[j][l] = A[i][k];
+            }
+        }
+    }
+
+    /**
+     * Performs standard O(n^3) matrix multiplication.
+     *
+     * @param A first input matrix
+     * @param B second input matrix
+     * @return resulting matrix C = A × B
+     */
+    public static int[][] standardMultiply(int[][] A, int[][] B) {
+        int n = A.length;
         int[][] C = new int[n][n];
 
-        // O(n^3) standard matrix multiplication
+        // Standard triple-nested loop for multiplication
         for (int i = 0; i < n; i++) {
             for (int k = 0; k < n; k++) {
                 for (int j = 0; j < n; j++) {
